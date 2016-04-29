@@ -14,4 +14,4 @@ TimeoutStartSec=0
 ExecStartPre=/usr/bin/docker pull vmakhaev/mongobackup-s3
 
 # Start
-ExecStart=/usr/bin/docker run --env-file=/home/core/backup.env --rm --link mongo --name=mongo-backup vmakhaev/mongobackup-s3
+ExecStart=/usr/bin/docker run --env-file=/home/core/env.env --rm --link mongo --name=mongo-backup vmakhaev/mongobackup-s3

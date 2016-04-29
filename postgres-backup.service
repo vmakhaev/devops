@@ -1,0 +1,17 @@
+[Unit]
+Description=Postgres backup service
+After=docker.service
+After=etcd2.service
+After=postgres.service
+
+Requires=docker.service
+Requires=etcd2.service
+After=postgres.service
+
+[Service]
+TimeoutStartSec=0
+
+ExecStartPre=/usr/bin/docker pull schickling/postgres-backup-s3
+
+# Start
+ExecStart=/usr/bin/docker run --env-file=/home/core/env.env --rm --link postgres --name=postgres-backup schickling/postgres-backup-s3
