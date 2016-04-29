@@ -11,7 +11,11 @@ After=mongo.service
 [Service]
 TimeoutStartSec=0
 
-ExecStartPre=/usr/bin/docker pull vmakhaev/mongobackup-s3
+ExecStartPre=/usr/bin/docker pull vmakhaev/mongo-backup-s3
 
 # Start
-ExecStart=/usr/bin/docker run --env-file=/home/core/env.env --rm --link mongo --name=mongo-backup vmakhaev/mongobackup-s3
+ExecStart=/usr/bin/docker run --env-file=/home/core/env.env --rm --link mongo --name=mongo-backup vmakhaev/mongo-backup-s3 backup
+
+# Restore
+# docker run --env-file=/home/core/env.env --rm --link mongo --name=mongo-backup vmakhaev/mongo-backup-s3 list
+# docker run --env-file=/home/core/env.env --rm --link mongo --name=mongo-backup vmakhaev/mongo-backup-s3 restore filename

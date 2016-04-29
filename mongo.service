@@ -11,10 +11,10 @@ TimeoutStartSec=0
 
 ExecStartPre=-/usr/bin/docker kill mongo
 ExecStartPre=-/usr/bin/docker rm mongo
-ExecStartPre=/usr/bin/docker pull mongo:3.2.0
+ExecStartPre=/usr/bin/docker pull mongo:3.2
 
 # Stop
 ExecStop=/usr/bin/docker stop mongo
 
 # Start
-ExecStart=/usr/bin/docker run -p 27017:27017 -v /home/core/mongo:/data/db --name mongo mongo:3.2.0 mongod --config /data/db/mongod.conf
+ExecStart=/usr/bin/docker run -p 27017:27017 -v /home/core/mongo:/data/db --name mongo mongo:3.2 mongod --config /data/db/mongod.conf
