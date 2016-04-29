@@ -1,0 +1,20 @@
+[Unit]
+Description=Redis service
+After=docker.service
+After=etcd2.service
+
+Requires=docker.service
+Requires=etcd2.service
+
+[Service]
+TimeoutStartSec=0
+# Pre
+ExecStartPre=-/usr/bin/docker kill redis
+ExecStartPre=-/usr/bin/docker rm redis
+ExecStartPre=/usr/bin/docker pull redis:3.0.6
+
+# Stop
+ExecStop=/usr/bin/docker stop redis
+
+# Start
+ExecStart=/usr/bin/docker run -p 6379:6379 -v /home/core/redis:/data --name redis redis:3.0.6 redis-server /data/redis.conf

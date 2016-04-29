@@ -1,0 +1,42 @@
+[
+    {
+        "ParameterKey":     "KeyPair",
+        "ParameterValue":   "deis"
+    },
+    {
+        "ParameterKey":     "InstanceType",
+        "ParameterValue":   "m4.large"
+    },
+    {
+        "ParameterKey":     "EC2VirtualizationType",
+        "ParameterValue":   "HVM"
+    },
+    {
+        "ParameterKey":     "EC2EBSVolumeType",
+        "ParameterValue":   "gp2"
+    },
+    {
+        "ParameterKey":     "AssociatePublicIP",
+        "ParameterValue":   "true"
+    },
+    {
+        "ParameterKey":     "ELBScheme",
+        "ParameterValue":   "internet-facing"
+    },
+    {
+        "ParameterKey":     "RootVolumeSize",
+        "ParameterValue":   "100"
+    },
+    {
+        "ParameterKey":     "DockerVolumeSize",
+        "ParameterValue":   "10"
+    },
+    {
+        "ParameterKey":     "EtcdVolumeSize",
+        "ParameterValue":   "10"
+    },
+    {
+        "ParameterKey":     "ClusterSize",
+        "ParameterValue":   "3"
+    }
+]

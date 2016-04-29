@@ -1,0 +1,17 @@
+[Unit]
+Description=Mongo backup service
+After=docker.service
+After=etcd2.service
+After=mongo.service
+
+Requires=docker.service
+Requires=etcd2.service
+After=mongo.service
+
+[Service]
+TimeoutStartSec=0
+
+ExecStartPre=/usr/bin/docker pull vmakhaev/mongobackup-s3
+
+# Start
+ExecStart=/usr/bin/docker run --env-file=/home/core/backup.env --rm --link mongo --name=mongo-backup vmakhaev/mongobackup-s3

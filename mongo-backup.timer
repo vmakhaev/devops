@@ -1,0 +1,9 @@
+[Unit]
+Description=Runs mongo backup every day at 2 AM
+After=mongo.service
+Requires=mongo.service
+
+[Timer]
+# OnCalendar=*:0/1
+OnCalendar=02:00
+Persistent=true

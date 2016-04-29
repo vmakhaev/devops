@@ -1,0 +1,20 @@
+[Unit]
+Description=Postgres service
+After=docker.service
+After=etcd2.service
+
+Requires=docker.service
+Requires=etcd2.service
+
+[Service]
+TimeoutStartSec=0
+
+ExecStartPre=-/usr/bin/docker kill postgres
+ExecStartPre=-/usr/bin/docker rm postgres
+ExecStartPre=/usr/bin/docker pull postgres:9.5.2
+
+# Stop
+ExecStop=/usr/bin/docker stop postgres
+
+# Start
+ExecStart=/usr/bin/docker run -p 5432:5432 -v /home/core/postgres:/var/lib/postgresql/data --name postgres -e POSTGRES_USER=user -e POSTGRES_PASSWORD=password postgres:9.5.2 postgres
