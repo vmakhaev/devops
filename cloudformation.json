@@ -25,11 +25,11 @@
     },
     {
         "ParameterKey":     "RootVolumeSize",
-        "ParameterValue":   "100"
+        "ParameterValue":   "50"
     },
     {
         "ParameterKey":     "DockerVolumeSize",
-        "ParameterValue":   "10"
+        "ParameterValue":   "100"
     },
     {
         "ParameterKey":     "EtcdVolumeSize",
